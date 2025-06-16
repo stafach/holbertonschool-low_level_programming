@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <<bits/libc-header-start.h>>
 /**
  * main - Entry point
  * Return: Always 0
