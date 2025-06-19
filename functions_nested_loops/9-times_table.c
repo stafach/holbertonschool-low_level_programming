@@ -16,7 +16,7 @@ for (j = 0; j < 10; j++)
 mul = i * j;
 if (mul == 0)
 {
-_putchar('0');
+_putchar(mul +'0');
 }
 else if (mul < 10)
 {
