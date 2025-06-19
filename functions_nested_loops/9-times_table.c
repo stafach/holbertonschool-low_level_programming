@@ -21,7 +21,7 @@ _putchar('0');
 else if (mul < 10)
 {
 _putchar(' ');
-_putchar('0');
+_putchar(mul + '0');
 }
 else
 {
