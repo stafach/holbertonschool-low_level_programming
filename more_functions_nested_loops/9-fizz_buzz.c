@@ -8,7 +8,7 @@ int main(void)
 {
 int i;
 
-for (i = 1; i <= 100; i++)
+for (i = 1; i < 100; i++)
 {
 if (((i % 3) == 0) && ((i % 5) == 0))
 {
@@ -26,12 +26,16 @@ else if (i < 10)
 {
 printf("%d", i);
 }
-else
+else if (i > 10 && i < 100)
 {
 putchar((i / 10) + '0');
 putchar((i % 10) + '0');
 }
 putchar(' ');
+}
+if (i == 100)
+{
+printf("Buzz");
 }
 putchar('\n');
 return (0);
