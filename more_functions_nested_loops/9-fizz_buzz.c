@@ -26,13 +26,18 @@ else if (i < 10)
 {
 printf("%d", i);
 }
-else
+else if (i > 10 && i < 100)
 {
 putchar((i / 10) + '0');
 putchar((i % 10) + '0');
 }
 putchar(' ');
+if (i == 100)
+{
+putchar((i / 10) + '0');
+putchar((i % 10) + '0');
 }
 putchar('\n');
 return (0);
+}
 }
