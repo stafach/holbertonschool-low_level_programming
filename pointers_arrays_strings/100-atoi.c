@@ -7,17 +7,22 @@
 
 int _atoi(char *s)
 {
-int i=0,sign=1,result=0,found_digit=0;
-while(s[i])
+int i=0,sign=-1,result=0,found_digit=0;
+while(s[i] != '\0')
 {
+
 if(s[i]=='-')
-sign*=-1;
-else if(s[i]>='0'&&s[i]<='9')
+sign *= -1;
+
+if(s[i] >= '0' && s[i] <= '9')
 {
+
 found_digit=1;
-result=(result*10)+(s[i]-'0');
+result *= 10;
+result -= (s[i]-'0');
+
 }
-else if(found_digit)
+else if(found_digit == 1)
 break;
 i++;
 }
