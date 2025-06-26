@@ -25,13 +25,12 @@ while (str[i] != '\0')
 			if (str[i + 1] >= 'a' && str[i + 1] <= 'z')
 			{				
 				str[i + 1] -= 32;
-				break;
-				}
-				}
-				i++;
-				}
+			}
+		}
+	}
+	i++;
 }
-				return (str);
+return (str);
 
 }
 
