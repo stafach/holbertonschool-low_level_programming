@@ -8,26 +8,18 @@
 
 char *leet(char *str)
 {
-	int i = 0;
-
-	while (str[i] != '\0')
+	char letter[] = {'a', 'e', 'o', 't', 'l'};
+	char number[] = {'4', '3', '0', '7', '1'};
+	int n;
+	int i;
+	
+	for (i = 0; str[i] != '\0'; i++)
 	{
-		while ((str[i] == 'a') || (str[i] == 'A'))
-			str[i] = '4';
-
-		while ((str[i] == 'e') || (str[i] == 'E'))
-			str[i] = '3';
-
-		while ((str[i] == 'o') || (str[i] == 'O'))
-			str[i] = '0';
-
-		while ((str[i] == 't') || (str[i] == 'T'))
-			str[i] = '7';
-
-		while ((str[i] == 'l') || (str[i] == 'L'))
-			str[i] = '1';
-
-		i++;
-	}
+		for (n = 0; n < 5; n++)
+		{
+			if ((str[i] == letter[n]) || (str[i] == letter[n] - 32))
+			str[i] = number[n];
+		}
+		}
 	return (str);
 }
