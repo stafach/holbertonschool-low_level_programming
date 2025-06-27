@@ -20,4 +20,7 @@ char *cap_string(char *);
 void reverse_array(int *a, int n);
 char *string_toupper(char *);
 char *leet(char *);
+int _strcmp(char *s1, char *s2);
+
+
 #endif
