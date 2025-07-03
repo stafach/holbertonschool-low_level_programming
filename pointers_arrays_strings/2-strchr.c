@@ -20,11 +20,8 @@ char *_strchr(char *s, char c)
 		i++;
 	}
 
-	while (s[i] != '\0')
-		if (s[i] != c)
-			return (0);
-
-	i++;
+	if (c == '\0')
+		return (&s[i]);
 
 	return (0);
 
