@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
 		if (atoi(argv[i]) == 0)
 			printf("0\n");
 
-		else if (atoi(argv[i]) < 0)
+		else if (atoi(argv[i]) < 49 || atoi(argv[i]) > 57)
 		{
 			printf("Error\n");
 			return (EXIT_FAILURE);
