@@ -16,6 +16,13 @@ char *str_concat(char *s1, char *s2)
 	int length1 = 0;
 	int length2 = 0;
 	char *mem;
+	
+
+	if (s1 == NULL)
+		s1[0] = '\0';
+
+	if (s2 == NULL)
+		s2[0] = '\0';
 
 	while (s1[length1] != '\0')
 		length1++;
