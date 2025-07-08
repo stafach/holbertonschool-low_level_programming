@@ -31,8 +31,8 @@ int **alloc_grid(int width, int height)
 
 		while (j < height)
 		{
-			j++;
 			mem[i][j] = 0;
+			j++;
 		}
 		i++;
 	}
