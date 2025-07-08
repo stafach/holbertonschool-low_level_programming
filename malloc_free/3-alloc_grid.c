@@ -26,10 +26,13 @@ int **alloc_grid(int width, int height)
 	{
 		mem[i] = malloc(sizeof(int) * height);
 
+		if (mem[i] == NULL)
+			return (NULL);
+
 		while (j < height)
 		{
 			j++;
-			mem[i][j] =0;
+			mem[i][j] = 0;
 		}
 		i++;
 	}
