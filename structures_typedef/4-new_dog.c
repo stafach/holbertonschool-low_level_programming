@@ -9,7 +9,7 @@
 
 int size(char *s)
 {
-	int len = 0; 
+	int len = 0;
 
 	if (s == NULL)
 		return (0);
