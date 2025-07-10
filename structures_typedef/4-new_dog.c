@@ -15,6 +15,9 @@ dog_t *new_dog(char *name, float age, char *owner)
 	unsigned int len1 = 0;
 	unsigned int len2 = 0;
 	unsigned int i, j;
+	
+	if (name == NULL || owner == NULL)
+		return (NULL);
 
 	if (new_dog == NULL)
 		return (NULL);
@@ -33,6 +36,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 		for (i = 0; i < len1; i++)
 			new_dog->name[i] = name[i];
 	}
+	new_dog->name[i] = '\0';
 	while (owner[len2] != '\0')
 		len2++;
 
@@ -48,6 +52,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 		for (j = 0; j < len2; j++)
 			new_dog->owner[j] = owner[j];
 	}
+	new_dog->owner[j] = '\0';
 	new_dog->age = age;
 	return (new_dog);
 }
