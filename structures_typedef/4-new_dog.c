@@ -2,6 +2,25 @@
 #include <stdlib.h>
 
 /**
+*size - calcule the size of a string array
+*@s: the array
+*Return: the size of the array
+*/
+
+int size(char *s)
+{
+	int len = 0; 
+
+	if (s == NULL)
+		return (0);
+
+	while (s[len] != '\0')
+		len++;
+
+	return (len);
+}
+
+/**
 **new_dog - creates a new dog.
 *@name: name of the new dog
 *@age: age of the new dog
@@ -12,18 +31,15 @@
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *new_dog = malloc(sizeof(struct dog));
-	unsigned int len1 = 0;
-	unsigned int len2 = 0;
+	unsigned int len1 = size(name);
+	unsigned int len2 = size(owner);
 	unsigned int i, j;
-	
+
 	if (name == NULL || owner == NULL)
 		return (NULL);
 
 	if (new_dog == NULL)
 		return (NULL);
-
-	while (name[len1] != '\0')
-		len1++;
 
 	new_dog->name = malloc(len1 + 1);
 	if (new_dog->name == NULL)
@@ -37,8 +53,6 @@ dog_t *new_dog(char *name, float age, char *owner)
 			new_dog->name[i] = name[i];
 	}
 	new_dog->name[i] = '\0';
-	while (owner[len2] != '\0')
-		len2++;
 
 	new_dog->owner = malloc(len2 + 1);
 	if (new_dog->owner == NULL)
