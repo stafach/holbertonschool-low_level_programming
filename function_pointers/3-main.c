@@ -9,8 +9,7 @@
 
 int main(int argc, char *argv[])
 {
-	int n = atoi(argv[1]);
-	int m = atoi(argv[3]);
+	int n, m;
 	int (*f_ptr)(int, int);
 
 	if (argc != 4)
@@ -18,6 +17,9 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(98);
 	}
+
+	n = atoi(argv[1]);
+	m = atoi(argv[3]);
 
 	f_ptr = get_op_func(argv[2]);
 
