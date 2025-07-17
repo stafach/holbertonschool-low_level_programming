@@ -9,6 +9,7 @@
 void print_char(va_list par)
 {
 	char c = va_arg(par, int);
+	
 	printf("%c", c);
 }
 
@@ -21,6 +22,7 @@ void print_char(va_list par)
 void print_int(va_list par)
 {
 	int num = va_arg(par, int);
+	
 	printf("%d", num);
 }
 
@@ -33,6 +35,7 @@ void print_int(va_list par)
 void print_float(va_list par)
 {
 	float decimal = va_arg(par, double);
+	
 	printf("%f", decimal);
 }
 
