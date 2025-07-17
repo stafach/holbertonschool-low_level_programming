@@ -6,10 +6,10 @@
 *Return: Nothing
 */
 
-void print_char(va_list type_of)
+void print_char(va_list par)
 {
-	printf("%c", va_arg(type_of, int));
-	va_end(type_of);
+	printf("%c", va_arg(par, int));
+	va_end(par);
 }
 
 /**
@@ -18,9 +18,10 @@ void print_char(va_list type_of)
 *Return: Nothing
 */
 
-void print_int(va_list type_of)
+void print_int(va_list par)
 {
-	printf("%i", va_arg(type_of, int));
+	printf("%i", va_arg(par, int));
+	va_end(par);
 }
 
 /**
@@ -29,9 +30,10 @@ void print_int(va_list type_of)
 *Return: Nothing
 */
 
-void print_float(va_list type_of)
+void print_float(va_list par)
 {
-	printf("%f", va_arg(type_of, double));
+	printf("%f", va_arg(par, double));
+	va_end(par);
 }
 
 /**
@@ -40,12 +42,13 @@ void print_float(va_list type_of)
 *Return: Nothing
 */
 
-void print_str(va_list type_of)
+void print_str(va_list par)
 {
-	if (type_of == NULL)
+	if (par == NULL)
 		printf("(nil)");
 
-	printf("%s", va_arg(type_of, char *));
+	printf("%s", va_arg(par, char *));
+	va_end(par);
 }
 
 /**
@@ -56,7 +59,7 @@ void print_str(va_list type_of)
 
 void print_all(const char * const format, ...)
 {
-	int i = 0, j = 0, k = 0;
+	int i = 0, j = 0;
 	va_list par;
 	type_t types[] = {
 		{"c", print_char},
@@ -66,7 +69,7 @@ void print_all(const char * const format, ...)
 	};
 
 	va_start(par, format);
-	while (format != NULL && format[i] != '\0' && par[k] != '\0')
+	while (format != NULL && format[i] != '\0')
 	{
 		while (j < 4)
 		{
@@ -76,7 +79,6 @@ void print_all(const char * const format, ...)
 			printf(", ");
 			}
 		j++;
-		k++;
 		}
 		i++;
 	}
