@@ -2,7 +2,7 @@
 
 /**
 *print_char - print a char
-*@type_of: the char
+*@par: the char
 *Return: Nothing
 */
 
@@ -14,7 +14,7 @@ void print_char(va_list par)
 
 /**
 *print_int - print an interger
-*@type_of: the integer
+*@par: the integer
 *Return: Nothing
 */
 
@@ -26,7 +26,7 @@ void print_int(va_list par)
 
 /**
 *print_float - print a float
-*@type_of: the float
+*@par: the float
 *Return: Nothing
 */
 
@@ -38,7 +38,7 @@ void print_float(va_list par)
 
 /**
 *print_str - print a string
-*@type_of: the string
+*@par: the string
 *Return: Nothing
 */
 
