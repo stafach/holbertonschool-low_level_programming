@@ -8,8 +8,8 @@
 
 void print_char(va_list par)
 {
-	printf("%c", va_arg(par, int));
-	va_end(par);
+	char c = va_arg(par, int);
+	printf("%c", c);
 }
 
 /**
@@ -20,8 +20,8 @@ void print_char(va_list par)
 
 void print_int(va_list par)
 {
-	printf("%i", va_arg(par, int));
-	va_end(par);
+	int num = va_arg(par, int);
+	printf("%d", num);
 }
 
 /**
@@ -32,8 +32,8 @@ void print_int(va_list par)
 
 void print_float(va_list par)
 {
-	printf("%f", va_arg(par, double));
-	va_end(par);
+	float decimal = va_arg(par, double);
+	printf("%f", decimal);
 }
 
 /**
@@ -44,11 +44,15 @@ void print_float(va_list par)
 
 void print_str(va_list par)
 {
-	if (par == NULL)
-		printf("(nil)");
+	char *str = va_arg(par, char *);
 
-	printf("%s", va_arg(par, char *));
-	va_end(par);
+	if (str == NULL)
+	{
+		printf("(nil)");
+		return;
+	}
+
+	printf("%s", str);
 }
 
 /**
@@ -61,7 +65,8 @@ void print_all(const char * const format, ...)
 {
 	int i = 0, j = 0;
 	va_list par;
-	type_t types[] = {
+	char *s = "";
+	type_t func_types[] = {
 		{"c", print_char},
 		{"i", print_int},
 		{"f", print_float},
@@ -69,16 +74,18 @@ void print_all(const char * const format, ...)
 	};
 
 	va_start(par, format);
-	while (format != NULL && format[i] != '\0')
+
+	while (format && format[i] != '\0')
 	{
-		while (j < 4)
+		j = 0;
+		while (j < 4 && format[i] != (*func_types[j].t))
+			j++;
+
+		if (j < 4)
 		{
-			if (format[i] == (*types[j].t))
-			{
-			types[j].f(par);
-			printf(", ");
-			}
-		j++;
+			printf("%s", s);
+			func_types[j].f(par);
+			s = ", ";
 		}
 		i++;
 	}
