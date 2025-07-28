@@ -14,22 +14,6 @@ void free_list(list_t *head)
 	{
 		return (NULL);
 	}
-
-	new_node->next = NULL;
-
-	if (*head == NULL)
-	{
-		*head = new_node;
-	}
-	else
-	{
-		tmp = *head;
-
-		while (tmp->next != NULL)
-		{
-			tmp = tmp->next;
-		}
-		free(tmp);
-	}
+	free(new_node->next);
 	free(new_node);
 }
