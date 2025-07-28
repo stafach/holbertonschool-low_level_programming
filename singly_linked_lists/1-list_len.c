@@ -18,5 +18,6 @@ size_t list_len(const list_t *h)
 	for (node = h; node != NULL; node = node->next)
 		i++;
 
+	free((void*)node);
 	return (i);
 }
