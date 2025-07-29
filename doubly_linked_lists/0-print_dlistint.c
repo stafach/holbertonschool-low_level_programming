@@ -8,18 +8,13 @@
 
 size_t print_dlistint(const dlistint_t *h)
 {
-	int i = 0;
-	const dlistint_t *node = malloc(sizeof(dlistint_t));
+	int i;
 
-	if (node == NULL)
-		return (0);
-
-	for (node = h; node != NULL; node = node->next, i++)
+	for (i = 0; h != NULL; h = h->next, i++)
 	{
-		printf("%d\n", node->n);
+		printf("%d\n", h->n);
 	}
 
-	free((void *)node);
 	return (i);
 }
 
