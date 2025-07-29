@@ -8,15 +8,10 @@
 
 size_t list_len(const list_t *h)
 {
-	int i = 0;
-	const list_t *node = malloc(sizeof(list_t));
+	int i;
 
-	if (node == NULL)
-		return (0);
-
-	for (node = h; node != NULL; node = node->next)
+	for (i = 0; h != NULL; h = h->next)
 		i++;
 
-	free((void *)node);
 	return (i);
 }
