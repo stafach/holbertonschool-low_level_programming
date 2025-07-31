@@ -18,16 +18,30 @@ int main(int argc, char **argv)
 		exit(97);
 	}
 	op = open(argv[1], O_RDONLY);
-	fr = read(op, buffer, sizeof(buffer));
-	if (fr == -1 || op == -1)
+	if (op == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
-	op2 = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
-	fw = write(op2, buffer, fr);
-	if (fw == -1 || op2 == -1)
+	fr = read(op, buffer, sizeof(buffer));
+	if (fr == -1)
 	{
+		close(op);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
+	}
+	op2 = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	if (op2 == -1)
+	{
+		close(op);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+		exit(99);
+	}
+	fw = write(op2, buffer, fr);
+	if (fw == -1)
+	{
+		close(op2);
+		close(op);
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
 	}
